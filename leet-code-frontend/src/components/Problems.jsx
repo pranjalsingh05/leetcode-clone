@@ -34,7 +34,7 @@ const Problems = () => {
    
 
   const onProblemClick = (problemId) => () => {
-    window.location.href = `/problems/:${problemId}`;
+    window.location.href = `/problems/${problemId}`;
   };
  
   return (

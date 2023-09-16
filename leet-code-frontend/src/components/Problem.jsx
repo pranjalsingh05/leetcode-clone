@@ -8,7 +8,7 @@ import ProblemSubmission from "./ProblemSubmission";
 
 const Problem = () => {
     const { problemId } = useParams();
-    const [problem, setProblem] = useState(null);
+    const [problem, setProblem] = useState();
     const [code, setCode] = useState("");
     const [language, setLanguage] = useState("cpp");
     const [showDescription, setShowDescription] = useState(true);
@@ -30,9 +30,9 @@ const Problem = () => {
     
     };
 
-    const init = async () => {
-        await getProblems();
-        await getSubmissions();
+    const init =  () => {
+         getProblems();
+         getSubmissions();
     };
 
 
@@ -64,10 +64,10 @@ const Problem = () => {
 
     useEffect(() => {
         init();
-    }, []);
+    },[problemId] );
 
     return (
-        <div className="grid grid-cols-3 gap-4 m-6 flex-grow overflow-y-auto">
+        <div className="h-full grid grid-cols-3 gap-4 m-6 flex-grow overflow-y-auto">
             <div className="bg-white rounded-lg pt-2 flex flex-col overflow-y-auto">
                 <div className="flex mb-2">
                     <TabButton

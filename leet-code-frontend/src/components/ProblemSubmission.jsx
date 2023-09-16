@@ -1,4 +1,4 @@
-
+/* eslint-disable react/prop-types */
 import { getStatusColor } from '../lib/util';
 
 const ProblemSubmission = ({ submissions, setCode, setSelectedSubmission }) => {

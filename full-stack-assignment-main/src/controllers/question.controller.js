@@ -9,13 +9,13 @@ const getQuestionsList = async (_req, res) => {
     });
 };
 
-const getQuestion = async (req, res, next) => {
+const getQuestion = async(req, res, next) => {
     try {
         // Create a route that lets a user get a specific problem
         const { id } = req.params;
-        console.log("Received id:", id);
-       
-        const question = QUESTIONS.find((question) => question.id == id);
+        console.log("Received id:", id); 
+        if (NaN(id)) console.log("true");     
+        const question = QUESTIONS.find((question) => question.id === quesId);
 
         if (!question) {
             const err = new Error("Question not found");
@@ -23,7 +23,7 @@ const getQuestion = async (req, res, next) => {
             throw err;
         }
          res.status(200).json({
-             data: QUESTIONS,
+             data: question,
             message: "Question fetched successfully",
         });
 
